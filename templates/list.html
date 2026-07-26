@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>list Expense</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <script>
+            function del(){
+            let id=  prompt("enter the id of the element you want to delete");
+            window.location.href = "/delete/" + id;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-column">
+               <img src="{{url_for('static',filename='woman1.webp')}}" alt="phto_theuserchose" id="user_img"> 
+                <h1>username</h1>
+            </div>
+            <div class="center-column">
+                <h1>ALL Expense:</h1>
+                <form action="/delete-all" method="POST">
+
+                    <table border="1" class="table">
+                        <tr>
+                            <th>Id</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Notes</th>
+                            <th>Date</th>
+                        </tr>
+            <!--[{id=val,amount=val,cat=val,date=val},{...},{...}]-->
+                        {% if data%}
+                        {%for dic in data%}
+                        <tr>
+                            <td>{{dic["id"]}}</td>
+                            <td>{{dic["amount"]}} DH</td>
+                            <td>{{dic["category"]}}</td>
+                            <td>{{dic["note"]}}</td>
+                            <td>{{dic["date"]}}</td>
+                        </tr>
+                        {%endfor%}
+                        {%endif%}
+                        
+                      
+                    </table>
+                    <div class="buttons">
+                        <button type="submit" id="all">Delete All</button>
+                    <a href="#" class="back" onclick="del()">Delete Expense</a>
+                    <a href="/modify" class="back">Modify</a>
+                    <a href="/home" class="back">back</a>
+                    </div>
+                    
+                </form>
+
+        
+            </div>
+            <div class="right-column">
+                <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
+            </div>
+        </div>
+    </body>
+</html>

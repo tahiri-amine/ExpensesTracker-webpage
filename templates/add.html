@@ -2,35 +2,48 @@
 <html>
     <head>
         <title>Add Expense</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     </head>
     <body>
-        <img src="" alt="user_img">
-        <h1>Username</h1>
-        <img src="" alt="logo">
-        <h2>Add Expense</h2>
-        <form action="" method="POST"><!--this time im gonna use table but next time ill handl space throught css-->
-            <table>
-                <tr>
-                    <td><label>Amount:</label></td>
-                    <td><input type="number" required placeholder="50 or 31.5 ect..."></td>
-                </tr>
-                <tr>
-                    <td><label>Catergory:</label></td>
-                    <td><input type="text" required placeholder="food,Drinks,ect.."></td>
-                </tr>
-                <tr>
-                    <td><label>Notes:</label></td>
-                    <td><input type="text" required placeholder="Milk,Bread,Perfum,ect.."></td>
-                </tr>
-                <tr>
-                    <td> <button type="submit">add</button></td>
-                    <!--here i think submit button automaticly post when it clicked-->
-                </tr>
-            </table>
-            <!--of course im ignoring errour handling for now -->
-
-
-
-        </form>
+        <div class="main-container">
+            <div class="left-column">
+                <img src="{{url_for('static',filename='boy1.webp')}}" alt="user_img">
+                <h1>Username</h1>
+            </div>
+            <div class="center-column">
+                <h1>Add Expense</h1>
+                <form action="/add" method="POST">
+                    <table class="tab">
+                        <tr>
+                            <td><label>Amount:</label></td>
+                            <td><input type="number" required placeholder="50 or 31.5 ect..." name="amount"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Catergory:</label></td>
+                            <td><input type="text" required placeholder="food,Drinks,ect.." name="cat"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Notes:</label></td>
+                            <td><input type="text" required placeholder="Milk,Bread,Perfum,ect.." name="note"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td> <button type="submit" id="add">add</button></td>
+                            <td><td><a href="/home" class="back" id="back">back</a></td></td>
+        
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="right-column">
+                    <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
+            </div>
+            
+        </div> 
     </body>
 </html>

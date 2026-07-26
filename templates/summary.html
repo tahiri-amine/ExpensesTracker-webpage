@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Summary Expenses</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-column">
+                <img src="{{url_for('static',filename='woman1.webp')}}" alt="phto_theuserchose" id="user_img"> 
+                <h1>username</h1>
+            </div>
+            <div class="center-column">
+                <h1>Expenses Summarising:</h1>
+                <table class="tab">
+                    <div class="list">
+                        {%if data%}
+                        {%for category,spent in data%}
+                        <tr>
+                            <td>
+                                <ul><li><label class="cat">{{category}}: </label><label class="sep">:</label><label class="spent">{{spent}}DH</label></li></ul> </td>
+                        </tr>
+                        {%endfor%}
+                        {%endif%}  
+                    </div>
+                  
+                </table>
+                <a href="/home" class="back" id="back-btn">back</a>
+            </div>
+            <div class="right-column">
+                <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
+            </div>
+        </div>
+        
+    </body>
+</html>

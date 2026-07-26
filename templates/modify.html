@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-column">
+                <img src="{{url_for('static',filename='boy1.webp')}}" alt="user_img">
+                <h1>username</h1>
+                 
+            </div>
+            <div class="center-column">
+                <h1>Modify An Expense</h1>
+                <form action="/modify" method="POST">
+                    <table class="table">
+                        <tr>
+                            <td><label>Id:</label></td>
+                            <td><input type="number" required placeholder="enter the id of the expenss u want to change" name="id"></td>
+                        </tr>
+                        <tr>
+                            <td><label>The New Catergory:</label></td>
+                            <td><input type="text" placeholder="enter the new category name" name="category"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Notes:</label></td>
+                            <td><input type="text" placeholder="enter the new note" name="note"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" id="size" class="back">Modify</button></td>
+                            <td> <a href="/list" class="back" id="btn1">back</a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="right-column">
+                <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
+            </div>
+        </div>
+       
+    </body>
+</html>

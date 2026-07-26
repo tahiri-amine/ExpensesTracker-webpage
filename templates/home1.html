@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
         <title>HomePage</title>
     </head>
     <body>
-        <!--this img position top-left of the page-->
-        <img src="" alt="phto_theuserchose" id="user_img">
+        <div class="main-container">
+            <!--left container-->
+            <div class="left-column">
+                <img src="{{url_for('static',filename='woman1.webp')}}" alt="phto_theuserchose" id="user_img"> 
+                <h1>username</h1> 
+            </div>
+            <!--center container-->
+            <div class="center-column">
+                <h1 class="title">Expense Tracker </h1>
+                <div class="tool-box">
+                    <a href="/add">➕Add an Expense</a> <br>
+                    <a href="/list">📋List Expenses</a> <br>
+                    <a href="/summary">📝Summary Expense</a>  <br>
+                </div>
+            </div>
+            <!--right container-->
+               <div class="right-column">
+                <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
+            </div>
+        
+        </div>
+        
+       
+        
+    
+     
+       
+
+        
+    
+       
         <!-- here actualy i think im gonna give the user 7 or 8 rounded circle phto_theuserchose
         and ask him to chose as a base app -->
-        <h3>Username</h3><!--im gonna change it latter to {{name}} when working on
+        <!--im gonna change it latter to {{name}} when working on
         app.py and same for all things-->
         <!--the username beside the user_img with a space so they dont glue -->
-        <a href="/add">➕Add an Expense</a> <br>
-        <a href="/list">📋List Expenses</a> <br>
-        <a href="/summary">📝Summary Expense</a> <br>
-        <!-- the buttons gonna be at the left-buttom--> <br>
-         <img src="" alt="logo"><!--this will be the app logo-->
+        
+      
+        <!-- the buttons gonna be at the left-buttom--> 
+         
+       
+       
+            
         
         
     </body>

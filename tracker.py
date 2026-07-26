@@ -17,13 +17,24 @@ class ExpenseTracker:
     def list(self):
         self.cursor.execute("select * from data")
         data = self.cursor.fetchall() #{(id,category,note,date),(id,catergory....)}
+        info = []
         if data:
             for tuple_ in data:
-                if tuple:
-                    print(f"[{tuple_[0]:<3}]: {tuple_[1]:<5.1f}DH | {tuple_[2]:<12} | {tuple_[3]:<12} | {tuple_[4]}")
+                if tuple_:
+                    dic =  {"id":tuple_[0],
+                            "amount":tuple_[1],
+                            "category":tuple_[2],
+                            "note":tuple_[3],
+                            "date":tuple_[4]}
+                    info.append(dic)
+           
+         
+            return info
+                    #print(f"[{tuple_[0]:<3}]: {tuple_[1]:<5.1f}DH | {tuple_[2]:<12} | {tuple_[3]:<12} | {tuple_[4]}")
         else:
-             print("you have no expenses yet ( ✜︵✜ )")
+             return "you have no expenses yet ( ✜︵✜ )"
     def summary(self):
+        info = []
         self.cursor.execute("select sum(amount) from data")
         amount_data = self.cursor.fetchall()#[(toatale,)]
         totale = amount_data[0][0]
@@ -35,6 +46,8 @@ class ExpenseTracker:
         print("Totale spent:",totale)
         for element in data:
             print(element[0],element[1],"DH")
+            info.append((element[0],element[1]))
+        return info
     def delete(self,id):
         #if id does not exist do not stay silent
         rows_number = self.count_rows()
@@ -52,14 +65,12 @@ class ExpenseTracker:
             self.cursor.execute("update data  set category = ? where id = ? ",(new_category,id))
             self.conn.commit()
             if self.cursor.rowcount == 0:
-                print(f"the id: [{id}] is not found !")
-                return
+                print( f"the id: [{id}] is not found !")
         if new_note:
             self.cursor.execute("update  data set note = ? where id = ?",(new_note,id))
             self.conn.commit()
             if self.cursor.rowcount == 0:
                 print(f"the id: [{id}] is not found !")
-                return
         if not new_category and not new_note:
             print("you have no expenses yet to modify")
        
