@@ -1,185 +1,260 @@
-body{
-   
-    background-image: url("Elate\ The\ Euge.jpg");
-      margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    box-sizing: border-box;
-    background-size: cover;
-    background-attachment: fixed;
-}
-.main-container{
-    display: flex;
-    justify-content: space-between;
-  
-    
-}
-.center-column{
-    display: flex;
-    flex-direction: column ;
-    justify-content: center;
-    gap: 30px;
-    padding: 70px;
-    padding-bottom: 80px;
-    
-  
-  
-  
-
-
-}
-.center-column h1{
-    text-align: center;
-    text-shadow: 3px 3px red;
-    font-size: 80px;
-    text-decoration: underline;
-
-}
-.center-column .tool-box{
-      padding: 20px;
-      font-size: 65px;
-     
-}
-.center-column .tool-box a{
+/*--------------Home page settup-------------------*/
+.link{
     text-decoration: none;
-    color: black;
-    background-color: #f0f0f0;
-    border: 2px gray solid;
-    border-radius: 10px;
+    color: white
 }
 
-.right-column img{
-    opacity: 0.85;
-     width: 200px;
-     height: 160px;
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-color: rgb(122, 160, 231);
+    
+    /* box-sizing: border-box; */
+}
+
+/*main container*/
+.main-container{
    
-}
-
-.left-column h1{
-        text-align: center;
-     }
-.left-column img {
-    border: 10px double black;
-}
-/*--------------------------------------------------add page:--------------------------------------*/
-.center-column form{
-     border: 5px black dashed;
-     font-size: 35px;
-     padding-bottom:2px;
-     background-image: url("fond.png");
-     padding-right: -100px;
+    display: flex;
+    height: 99vh;
+    width: 100vw;
+    
   
+    
+    
 }
-.center-column h2{
-    text-align: center;
-}
-input[type="text"],input[type="number"]{
-    width: 400px;
-    height: 25px;
-}
-.center-column{
+/*Side bar*/
+.sidebar{
+    border: 2px brown solid;
+    margin: 8px;
+    border-radius: 18px;
+    width: 17%;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    padding:20px;
-}
-.table{
-    width: 100%;
-}
-#add{
-     margin-left: 100px;
-     font-size: 30px;
-}
-.back{
-     font-size: 30px;
-     margin-right: 100px;
-     text-decoration: none;
-     color: black;
-     background-color: #f0f0f0;
-     border: 1px gray solid;
-     border-radius: 2px;
-     text-align: right;
-      border: black 2px solid;
-
-}
-#all{
-    border: black 2px solid;
-    height: 40px;
-    font-size: 30px;
-    margin-right: 80px;
-}
-/*--------------------------------------------------list buttons:--------------------------------------*/
-.buttons{
-  display: flex;
-  flex-direction:row ;
-  justify-content: center;
-  gap: 30px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1px;
+    background-color: rgb(86, 116, 173);
   
 }
-/*--------------------------------------------------summary page:--------------------------------------*/
-
-.cat{
-    color: red;
-    border: black 4px solid;
-}
-table{
-   
-   
-    width: 100%;
-
-}
-.tab{
-     border: black 7px dashed;
-
-}
-
-.table{
-    width: 1000px;
-}
-li{
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-
-}
-.spent{
-    padding-right: 400px;
-    background-color: aqua;
-    width: 70px;
-}
-ul{
-    padding-left: 0px;
-}
-.cat{
-    display: flex;
-    justify-content: center;
-    padding: 2px 20px; 
-    ;
-    background-color:rgb(222, 170, 102);
-    width: 90px
-    ;
-    
-}
-.sep{
-    padding:0px 10px;
-    font-weight: bold;
-    font-size: 25px;;
-    background-color: white;
-    width: 100px;
+/*content( it contain the welcome message )*/
+.content{ 
+    border: 2px solid brown;
+    margin: 10px;
+    border-radius: 19px;
+    margin-left: 6px;
+    flex: 1;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    text-shadow: 4px 4px white;
+    background-color: rgb(70, 122, 219);
+    align-items: center;
+ 
 }
-#back-btn{
+
+/*welcom message*/
+#welcom-message{
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: brown;
+}
+/*section (in the side bar where there is buttons)*/
+.sections{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    padding: 20px;
+    height: 60%;
+    align-items: center;
+   
+}
+/*sections buttons*/
+.sections span{
+   
     width: 96%;
     text-align: center;
+    border-radius: 16px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    color: brown;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
-#size{
+
+
+/*top section where the logo live*/
+.top-section{
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  
+    border-radius: 18px;
+}
+
+/*logo settup*/
+.top-section img{
+    width: 70%;
+    height: 90%;
+    
+}
+/*logo descdription*/
+.top-section span{
+    font-size: 23px;
+    font-weight: bold;
+    
+}
+/*link*/
+.sections span a{
+    text-decoration: none;
+    color: brown;
+}
+/*Buttons and hover effect*/
+
+.sections span:hover{
+    background-color: #2374EE;
+    color: white;
+   
+}
+.sections span:hover a{
+    background-color: #2374EE;
+    color: white;
+}
+.sections .active {
+    background-color: #2374EE;
+   
+}
+.sections .active  {
+    color: white;
+}
+/*-------------- Add page settup-------------------*/
+/*from content container the title and the form */
+/*settup the active button background and color*/
+.sections .active-add{
+    background-color: #2374EE;
+}
+.sections .active-add a{
+    color: white;
+}
+/*can u sum the two proprities abouve ?*/
+/*the content border jsut to manipulte the element as the title and the form*/
+.form-content{
+    border: 2px solid brown;
+    margin: 10px;
+    border-radius: 19px;
+    margin-left: 6px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(70, 122, 219);
+    align-items: center;
+}
+/*settup the form itself*/
+.form-content form{
+    border: 3px solid white;
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+/*settup the form elements
+ which are inside as the inputs and the buttons*/
+form .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    
+}
+/*the form title*/
+.form-content span{
+    font-size: 40px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: brown;
+    text-shadow: 2px 2px white;
+}
+.amount , .category ,.note{
+   
+    display: flex;
+    justify-content: flex-start;
+    gap: 35px;
+}
+.category{
+    gap: 24px;
+}
+.note{
+    gap: 77px;
+}
+label{
     font-size: 30px;
-    margin-left: 150px;
+    margin-left: 60px;
+    color: brown;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 2px 2px white;
+  
 
 }
-#btn1{
-    margin-right: 400px;
-    margin-left: 150px;
-    font-size: 32px;
+input{
+    width: 74%;
+    border-radius: 6px;
+    font-size: 20px;
+    border: 2px black solid;
+}
+/*button*/
+/*.button is the dive that regroupe the buttons*/
+.button{
+    display: flex;
+    justify-content: space-around;
+    
+}
+/* settup the button Add*/
+.button button{
+    font-size: 35px;
+    border-radius: 8px;
+    background-color:brown;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-shadow: 2px 2px white;
+}
+/*settup the hover of the button ADD*/
+.button button:hover{
+    background-color: white;
+    color: #2374EE;
+}
+/*settup back link to look like a back button*/
+#link-btn{
+ border:  2px solid rgb(173, 168, 168);
+ width: 6%;
+ border-radius: 8px;
+ box-shadow: 2px 2px white;
+ background-color: brown;
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ font-size: 25px;
+ padding-left: 6px;
+ padding-right: 6px;
+}
+/*settup back's hover*/
+#link-btn:hover{
+    background-color:white ;
+    color:#2374EE;
 }

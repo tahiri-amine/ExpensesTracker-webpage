@@ -1,9 +1,9 @@
 from flask import Flask,render_template,request
 from tracker import ExpenseTracker
 app = Flask(__name__)
-@app.route("/home")
+@app.route("/home",methods=["POST","GET"]) # it need post!
 def home():
-    return  render_template("home1.html")
+    return  render_template("home.html")
 @app.route("/add",methods=["POST","GET"])
 def add():
     obj  = ExpenseTracker()

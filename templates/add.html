@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Add Expense</title>
         <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     </head>
     <body>
+        <!----------------------------------------main container-------------------------------->
         <div class="main-container">
-            <div class="left-column">
-                <img src="{{url_for('static',filename='boy1.webp')}}" alt="user_img">
-                <h1>Username</h1>
+        <!--------------------------------------------SideBar--------------------------------->
+            <div class="sidebar">
+                <div class="top-section">
+                    <img src="{{url_for('static',filename='logo.png')}}" alt="logo">
+                    <span><font style="color: brown;">Expense </font><font style="color: rgb(53, 159, 201);">Tracker</font></span>
+                </div>
+                
+                <div class="sections">
+                    <span >
+                        <a href="/home">Home</a>
+                    </span>
+                    <span class="active-add">
+                        <a href="/add">Add Expense</a>
+                    </span>
+                    <span>
+                        <a href="/list">List All Expenses</a>
+                    </span>
+                    <span>
+                        <a href="/summary">Summary Expenses</a>
+                    </span>
+                    <span>
+                        <a href="/wallet">My Wallet</a>
+                    </span>
+                    
+                    
+                </div>
             </div>
-            <div class="center-column">
-                <h1>Add Expense</h1>
-                <form action="/add" method="POST">
-                    <table class="tab">
-                        <tr>
-                            <td><label>Amount:</label></td>
-                            <td><input type="number" required placeholder="50 or 31.5 ect..." name="amount"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Catergory:</label></td>
-                            <td><input type="text" required placeholder="food,Drinks,ect.." name="cat"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Notes:</label></td>
-                            <td><input type="text" required placeholder="Milk,Bread,Perfum,ect.." name="note"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> <button type="submit" id="add">add</button></td>
-                            <td><td><a href="/home" class="back" id="back">back</a></td></td>
-        
-                        </tr>
-                    </table>
-                </form>
+        <!-------------------------------------content----------------------------------------->
+            <div class="form-content">
+                <span>Add New Expense</span>
+               <form action="/add" method="post">
+                
+                <div class="form">
+                    <div class="amount">
+                        <label>Amount  :</label>
+                        <input type="number" step="0.001" placeholder="1250.00" name="amount">
+                    </div>
+                    <div class="category">
+                        <label >Category:</label>
+                        <input type="text" placeholder="food" name="cat">
+                    </div>
+                    <div class="note">
+                        <label>Note    :</label>
+                        <input type="text" placeholder="lunch with frienfs" name="note">
+                    </div>
+                    <div class="button">
+                        <button type="submit">Add</button>
+                        <a href="/home" class="link" id="link-btn">Back</a>
+                    </div>
+                    
+                </div>
+               </form>
             </div>
-            <div class="right-column">
-                    <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
-            </div>
-            
-        </div> 
+        </div>
     </body>
 </html>
