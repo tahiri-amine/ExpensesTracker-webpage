@@ -10,7 +10,8 @@ A web app built with Flask and SQLite that allows users to add, list, modify, de
 5. Run the app: python app.py
 6. Open your browser at: http://127.0.0.1:5000
 ## Upcoming Features
-- Improve the UI and add more features
+- Improve the UI by using modern UI design 
+- I A whole refactor for the backend add some new features and remove the usless one 
 ## Project Structure
 ```
 ExpenseTracker/
