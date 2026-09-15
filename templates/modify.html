@@ -1,44 +1,116 @@
-
 <!DOCTYPE html>
 <html>
     <head>
-         <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <script>
+            function del(element){
+                let id = element.name;
+                console.log(id)
+                // fetch api 
+                fetch("/delete/" + id )
+                    .then (response => response.text())
+                    .then(data => {
+                        if (data == 'ok'){
+                            window.location.reload();
+                        }
+                        else{
+                            console.log("the data is :",data);
+                        }
+                    })
+            }
+        </script>
     </head>
     <body>
+        <!----------------------------------------main container-------------------------------->
         <div class="main-container">
-            <div class="left-column">
-                <img src="{{url_for('static',filename='boy1.webp')}}" alt="user_img">
-                <h1>username</h1>
-                 
+        <!--------------------------------------------SideBar--------------------------------->
+            <div class="sidebar">
+                <div class="top-section">
+                    <img src="{{url_for('static',filename='logo.png')}}" alt="logo">
+                    <span><font style="color: brown;">Expense </font><font style="color: rgb(53, 159, 201);">Tracker</font></span>
+                </div>
+                
+                <div class="sections">
+                    <span >
+                        <a href="/home">Home</a>
+                    </span>
+                    <span>
+                        <a href="/add">Add Expense</a>
+                    </span>
+                    <span class="active-list">
+                        <a href="/list" >List All Expenses</a>
+                    </span>
+                    <span>
+                        <a href="/summary">Summary Expenses</a>
+                    </span> 
+                </div>
             </div>
-            <div class="center-column">
-                <h1>Modify An Expense</h1>
-                <form action="/modify" method="POST">
-                    <table class="table">
+        <!-------------------------------------content----------------------------------------->
+           <div class="list-content">
+                <div class="head">
+                    <span>List All expenses</span>
+                    <div class="header-btns">
+                        <form action="" method="">
+                            <button id="del-all">Delete all</button>
+                        </form>
+                        <a href="/home" id="back">Back</a>
+                    </div>
+                </div>
+                
+                <div class="body">
+                    <table border="1">
+                        <!--Table header-->
                         <tr>
-                            <td><label>Id:</label></td>
-                            <td><input type="number" required placeholder="enter the id of the expenss u want to change" name="id"></td>
+                                <th>id</th>
+                                <th>Amont</th>
+                                <th>Category</th>
+                                <th>Note</th>
+                                <th>Date</th>
+                                <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td><label>The New Catergory:</label></td>
-                            <td><input type="text" placeholder="enter the new category name" name="category"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Notes:</label></td>
-                            <td><input type="text" placeholder="enter the new note" name="note"></td>
-                        </tr>
-                        <tr>
-                            <td><button type="submit" id="size" class="back">Modify</button></td>
-                            <td> <a href="/list" class="back" id="btn1">back</a>
-                            </td>
-                        </tr>
+                        {% for dic in data %}
+                            {% if dic["id"]|int == target_id |int %}
+                                <form action="/modify" method="POST">
+                                    <tr>
+                                        <td>{{dic["id"]}}</td>
+                                        <td >{{dic["amount"]}} DH</td>
+                                        <td><input id="test" type="text" placeholder="{{dic['category']}}"  name="catego"></td>
+                                        <td><input type="text"placeholder="{{dic['note']}}" name="note"></td>
+                                        <td>{{dic["date"]}}</td>
+                                        <td id="action">
+                                            <div class="action-btns">
+                                                <a href="/list" id="x"> 
+                                                    <i class="bi bi-x"></i>
+                                                </a>
+                                                <button id="edit" type="type"><i class="bi bi-floppy"></i></button>
+                                                <input type="text" value="{{dic['id']}}" name="target_id" hidden>
+                                                <input type="hidden" value="save-request" name="request-type">
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                </form>
+                                
+                            {%else%}
+                                <tr>
+                                    <td>{{dic["id"]}}</td>
+                                    <td >{{dic["amount"]}} DH</td>
+                                    <td>{{dic["category"]}}</td>
+                                    <td>{{dic["note"]}}</td>
+                                    <td>{{dic["date"]}}</td>
+                                    <td id="action">
+                                        <div class="action-btns">
+                                            <button id="del" name="{{dic['id']}}" onclick="del(this)"><i class="bi bi-trash3"></i></button>
+                                            <button id="edit"><i class="bi bi-pencil"></i></button>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            {%endif%}
+                        {%endfor%}
                     </table>
-                </form>
-            </div>
-            <div class="right-column">
-                <img src="{{url_for('static',filename='logo.png')}}" alt="phto_theuserchose" id="logo"> 
-            </div>
+                </div>
+         </div>
+              
         </div>
-       
     </body>
 </html>

@@ -14,17 +14,11 @@ body{
     
     /* box-sizing: border-box; */
 }
-
 /*main container*/
 .main-container{
-   
     display: flex;
     height: 99vh;
     width: 100vw;
-    
-  
-    
-    
 }
 /*Side bar*/
 .sidebar{
@@ -34,11 +28,9 @@ body{
     width: 17%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 1px;
     background-color: rgb(86, 116, 173);
-  
 }
 /*content( it contain the welcome message )*/
 .content{ 
@@ -55,9 +47,7 @@ body{
     text-shadow: 4px 4px white;
     background-color: rgb(70, 122, 219);
     align-items: center;
- 
 }
-
 /*welcom message*/
 #welcom-message{
     font-size: 30px;
@@ -139,7 +129,7 @@ body{
 .sections .active  {
     color: white;
 }
-/*-------------- Add page settup-------------------*/
+/*-------------- ----------------------------Add page settup---------------------------------*/
 /*from content container the title and the form */
 /*settup the active button background and color*/
 .sections .active-add{
@@ -181,7 +171,6 @@ form .form{
     justify-content: space-around;
     height: 100%;
     width: 100%;
-    
 }
 /*the form title*/
 .form-content span{
@@ -208,8 +197,6 @@ label{
     color: brown;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-shadow: 2px 2px white;
-  
-
 }
 input{
     width: 74%;
@@ -257,4 +244,311 @@ input{
 #link-btn:hover{
     background-color:white ;
     color:#2374EE;
+}
+/*---------------------------------- List page settup-------------------------------------*/
+/*the container that containe all  the elements*/
+.list-content{
+    border: 2px solid brown;
+    margin: 10px;
+    border-radius: 19px;
+    margin-left: 6px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(70, 122, 219);
+    align-items: flex-start;
+
+}
+/*table controling*/
+.list-content table{
+    font-size: 51px;
+    border: brown 3px solid;
+    width: 96%;
+    background-color: hsl(0, 0%, 94%);
+    border-collapse: collapse;
+}
+/*th & td cellule controling*/
+
+.list-content table th td{
+    color: white;
+    padding: 0;
+}
+/*td manipulation*/
+table tr td {
+    color:black;
+    padding-bottom:4px;
+    font-size: 25px;
+   
+  
+}
+
+/*th manipulation*/
+table tr th {
+    background-color:  hsl(0, 59%, 47%);
+    color: white;
+    font-size: 35px;
+    padding: 0;
+    border: white 2px solid;
+    position:sticky;/* tell the browser stick me when the table scrole*/
+    top: 0px; /* tell the browser stick me at the top with 0px */
+ 
+
+   
+}
+
+/*action buttons are button in the table*/
+/*.action-btns is the container that containe two buttons */
+#action{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.action-btns{
+    border: 2px  yellow solid;
+    flex: 1;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly ;
+    align-items: center;
+}
+.action-btns button{
+    font-size: 25px;
+    border: none;
+    border-radius: 9px;
+    background-color: red;
+    color:white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#del{
+    background-color: hsl(0, 100%, 46%);
+    color:white;
+    
+}
+#edit{
+    background-color: hsl(120, 100%, 25%);
+    color:white;
+}
+#x{
+    background-color: hsl(0, 100%, 46%);
+    border-radius: 9px;
+    color: white;
+    width: 31%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 28px;
+}
+
+/*the header is what conataine the title and the buttons*/
+/*head is a container containe span and header-btns*/
+.head{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 500px;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+
+}
+
+.head span{
+    font-size: 50px;
+    color: brown;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 2px 2px white;
+    margin-left: 20px;
+    border-radius: 25px;
+    width: 40%;
+    
+    padding: 4px;
+  
+
+}
+.header-btns{
+
+ display: flex;
+ width: 20%;
+ justify-content: space-evenly;
+ border-radius: 25px;
+ width: 40%;
+ height: 40%;
+
+
+}
+.header-btns button , #back{
+    font-size: 27px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.header-btns form button{
+    border: 2px solid yellow;
+    height: 50px;
+}
+
+#del-all{
+    background-color: hsl(0, 85%, 42%);
+    color: white;
+    border-radius: 18px;
+    box-shadow: 2px 2px white;
+  
+
+}
+
+#back{
+    background-color: hsl(0, 0%, 50%);
+    color: white;
+    box-shadow: 2px 2px white;
+    border-radius: 18px;
+    width: 20%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.body{
+    display: flex;
+   
+    height: 78%;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto; /* overflow for scroling */
+
+}
+.amount{
+    color: black;
+}
+/*buttons*/
+.sections .active-list {
+    background-color: #2374EE;
+   
+}
+.sections .active-list a {
+    color: white;
+}
+/*hover effect*/
+#del-all:hover{
+    background-color: hsl(0, 85%, 50%) ;
+    
+}
+#back:hover{
+    background-color: hsl(0, 0%, 60%);
+    color: white;
+    box-shadow: 2px 2px white;
+    border-radius: 18px;
+}
+#del:hover{
+    background-color: hsl(0, 100%, 55%);
+    color:white;
+}
+#edit:hover{
+    background-color: hsl(120, 100%, 40%);
+    color:white;
+}
+#x:hover{
+    background-color: hsl(0, 100%, 55%); 
+}
+table td input {
+   border: none; /*remove the  default border*/
+   outline:none;
+   text-align: center;
+   background-color: hsl(0, 0%, 94%);
+   font-size: inherit; /* so it take same size as the other tds */
+   /*inherit is a good atributs for inheritance*/
+}
+.data-error{
+    border-top: 2px solid white;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.data-error span{
+    color: brown;
+    font-size: 55px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 3px 3px white;
+}
+
+/*------------------------------------settup summary page----------------------*/
+.main-container-s{
+    background-color: rgb(122, 160, 231);
+    flex:1;
+    height: 99%;
+    display: flex;
+    border: 2px yellow solid;
+    
+}
+.content-s{
+    border: 2px red solid;
+    flex: 1;
+    margin-right:8px;
+    display: flex;
+    flex-direction: column;
+
+   
+    
+}
+/*summary title*/
+.top{
+    display: flex;
+    justify-content: center;
+}
+.top span{
+    font-size: 70px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 6px 6px brown;
+ 
+    
+}
+/*expense data*/
+.label-s{
+    font-size: 60px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: brown;
+    text-shadow: 3px 3px white;
+ 
+}
+.data{
+    font-size: 50px;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     color: brown;
+    text-shadow: 2px 2px white;
+}
+.content-s{
+    background-color: rgb(70, 122, 219);
+     border-radius: 18px;
+     height: 98%;
+     margin-top: 8px;
+}
+.content-s table tr {
+    width: 98%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid white;
+    border-radius:10px;
+    margin-left: 9px;
+   
+   
+}
+.content-s table{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.label-s{
+    width: 30%;
+    text-align: center;
+}
+.data{
+    width: 30%;
+    text-align: center;
 }

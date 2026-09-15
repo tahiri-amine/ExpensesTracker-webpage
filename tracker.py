@@ -8,10 +8,8 @@ class ExpenseTracker:
         self.conn = sqlite3.connect("data.db")
         self.cursor = self.conn.cursor()
         self.table = self.cursor.execute("create table if not exists data(id integer primary key,amount integer,category text,note text,date text) ")
-
-
     def add(self, amount, category, note):
-        date =  datetime.today().strftime( "%Y-%m-%d")
+        date = datetime.today().strftime("%d-%m-%Y")
         self.cursor.execute("insert into data(amount,category,note,date) values (?,?,?,?)",(amount,category,note,date))
         self.conn.commit()
     def list(self):
@@ -27,12 +25,10 @@ class ExpenseTracker:
                             "note":tuple_[3],
                             "date":tuple_[4]}
                     info.append(dic)
-           
-         
             return info
                     #print(f"[{tuple_[0]:<3}]: {tuple_[1]:<5.1f}DH | {tuple_[2]:<12} | {tuple_[3]:<12} | {tuple_[4]}")
         else:
-             return "you have no expenses yet ( ✜︵✜ )"
+             return False
     def summary(self):
         info = []
         self.cursor.execute("select sum(amount) from data")
@@ -43,16 +39,14 @@ class ExpenseTracker:
             return
         self.cursor.execute("select category,sum(amount) from data group by category")#same need a hangling here
         data = self.cursor.fetchall()#[(cat,amount),(cat,amount),...]
-        print("Totale spent:",totale)
         for element in data:
-            print(element[0],element[1],"DH")
             info.append((element[0],element[1]))
         return info
     def delete(self,id):
         #if id does not exist do not stay silent
         rows_number = self.count_rows()
         if rows_number == 0:
-            print("you have no expenses yet ! there is nothing to delete ( ✜︵✜ )")
+            #print("you have no expenses yet ! there is nothing to delete ( ✜︵✜ )")
             return
         self.cursor.execute("delete from data where id  = ? ",(id,))
         self.conn.commit()
@@ -64,16 +58,15 @@ class ExpenseTracker:
         if new_category:
             self.cursor.execute("update data  set category = ? where id = ? ",(new_category,id))
             self.conn.commit()
-            if self.cursor.rowcount == 0:
+            if self.cursor.rowcount == 0:#somthign does not go with this
                 print( f"the id: [{id}] is not found !")
         if new_note:
             self.cursor.execute("update  data set note = ? where id = ?",(new_note,id))
             self.conn.commit()
             if self.cursor.rowcount == 0:
-                print(f"the id: [{id}] is not found !")
-        if not new_category and not new_note:
-            print("you have no expenses yet to modify")
-       
+                return f"the id: [{id}] is not found !"
+        # if not new_category and not new_note:
+        #     return "you have no expenses yet to modify"
     def delete_all(self):
         #for now this stay silent in succes and fealure cus it doesnt matter 
         self.cursor.execute("delete from data")
