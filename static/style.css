@@ -483,14 +483,12 @@ table td input {
     
 }
 .content-s{
-    border: 2px red solid;
+    border: 2px brown solid;
     flex: 1;
     margin-right:8px;
     display: flex;
     flex-direction: column;
-
-   
-    
+    overflow-y: auto;
 }
 /*summary title*/
 .top{
@@ -509,15 +507,17 @@ table td input {
 .label-s{
     font-size: 60px;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: brown;
+    color: black;
     text-shadow: 3px 3px white;
+    border: 2px solid white;
  
 }
 .data{
     font-size: 50px;
      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     color: brown;
-    text-shadow: 2px 2px white;
+     color: black;
+    text-shadow: 1px 1px white;
+    border: 2px solid white;
 }
 .content-s{
     background-color: rgb(70, 122, 219);
@@ -530,7 +530,6 @@ table td input {
     margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
-    border: 2px solid white;
     border-radius:10px;
     margin-left: 9px;
    
@@ -545,7 +544,7 @@ table td input {
 }
 
 .label-s{
-    width: 30%;
+    width: 40%;
     text-align: center;
 }
 .data{
